@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function randomChoice() {
+            const choiceArray = [
+                'Choice 1',
+                'Choice 2',
+                'Choice 3'
+            ]
+
+            const makeChoice = Math.floor(Math.random()*choiceArray.length);
+            let result;
+            if (makeChoice == 0) {
+                result = 'rock';
+            } else if (makeChoice == 1) {
+                result = 'paper';
+            } else {
+                result = 'scissors';
+            }
+            return result;
+        }
+        
+        let playerSelection = prompt('Choose Rock, Paper, Scissors').toLowerCase();
+        let computerSelection = randomChoice();
+        console.log(`You chose ${playerSelection}`);
+        console.log(`The computer chose ${computerSelection}`);
+                
+
+        function compareTheChoice() {
+            if (playerSelection === 'rock' && computerSelection === 'rock') {
+                console.log("It's a draw!");
+            } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+                console.log('Computer wins!');
+            } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                console.log('You win!');
+            } else if (playerSelection === '1' && computerSelection === 'rock') {
+                console.log('You win!');
+            } else if (playerSelection === 'paper' && computerSelection === 'paper') {
+                console.log("It's a draw!");
+            } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                console.log("Computer wins!");
+            } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                console.log('Computer Wins!');
+            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                console.log('You win!');
+            } else {
+                console.log("It's a draw!");
+            }
+        }
+compareTheChoice();
+
+    </script>
+</body>
+</html>
