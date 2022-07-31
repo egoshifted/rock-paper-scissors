@@ -5,8 +5,18 @@ const br = document.createElement("br");
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
+const welcomeMessage = document.querySelector(".welcome");
+
+// Refreshes Page by clicking reset game
+document.querySelector(".reset").addEventListener("click", function() {
+    location.reload();
+  });
+
 
 // Define play area
+const playerChoice = document.querySelector(".playerchoice");
+const computerChoice = document.querySelector(".computerchoice");
+const resultArea = document.querySelector(".resultarea")
 const playArea = document.querySelector(".playarea");
 
 // Registers if any of the choices have been made
@@ -22,7 +32,7 @@ let playerSelection = "";
 rock.addEventListener("click", rockSelection);
 
 function rockSelection() {
-    playArea.textContent = "You chose rock";
+    playerChoice.textContent = "You chose rock";
     playerSelection = "rock";
 }
 
@@ -30,7 +40,7 @@ function rockSelection() {
 paper.addEventListener("click", paperSelection);
 
 function paperSelection() {
-    playArea.textContent = "You chose paper";
+    playerChoice.textContent = "You chose paper";
     playerSelection = "paper";
 }
 
@@ -38,7 +48,7 @@ function paperSelection() {
 scissors.addEventListener("click", scissorsSelection);
 
 function scissorsSelection() {
-    playArea.textContent = "You chose scissors";
+    playerChoice.textContent = "You chose scissors";
     playerSelection = "scissors";
 }
 
@@ -48,7 +58,10 @@ choiceMade.addEventListener("click", playRound)
 
 // Plays a full round of RPS 
 function playRound() {
-
+    
+    // Removes the "Choose your weapon" text
+    welcomeMessage.textContent = "";  
+    
     // Generate Computer Choice
     function randomChoice() {
         const choiceArray = [
@@ -70,12 +83,12 @@ function playRound() {
     }
 
     let computerSelection = randomChoice();
-    playArea.insertAdjacentText("beforeend",`The computer chose ${computerSelection}`);
-    console.log(`You chose ${playerSelection}`);
-    console.log(`The computer chose ${computerSelection}`);
     
+    // Outputs the computer's choice into the play window
+    computerChoice.textContent = `The computer chose ${computerSelection}`
+  
+    // Runs the comparison function
     compareTheChoice();
-          
 
     function compareTheChoice() {
         const draw = "It's a draw!";
@@ -83,49 +96,31 @@ function playRound() {
         const lose = "Computer Wins!"
         
         if (playerSelection === 'rock' && computerSelection === 'rock') {
-            console.log("It's a draw!");
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", draw)
+            resultArea.textContent = draw;
             drawScore += 1;
         } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-            console.log('Computer wins!');
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", lose)
+            resultArea.textContent = lose;
             computerScore += 1;
         } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-            console.log('You win!');
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", win)
+            resultArea.textContent = win;
             userScore += 1;
-        } else if (playerSelection === '1' && computerSelection === 'rock') {
-            console.log('You win!');
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", win)
+        } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+            resultArea.textContent = win;
             userScore += 1;
         } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-            console.log("It's a draw!");
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", draw)
+            resultArea.textContent = draw;
             drawScore += 1;
         } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-            console.log("Computer wins!");
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", lose)
+            resultArea.textContent = lose;
             computerScore += 1;
         } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-            console.log('Computer Wins!');
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", lose)
+            resultArea.textContent = lose;
             computerScore += 1;
         } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-            console.log('You win!');
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", win)
+            resultArea.textContent = win;
             userScore += 1;
         } else {
-            console.log("It's a draw!");
-            playArea.appendChild(br)
-            playArea.insertAdjacentText("beforeend", draw) 
+            resultArea.textContent = draw;
             drawScore += 1;
         }
         
@@ -133,6 +128,10 @@ function playRound() {
 
     }
 
-
+// Outputs the current score into the results window
+const results = document.querySelector(".results")
+const draws = document.querySelector(".draws")
+results.textContent = `Your Score is ${userScore}  |  The computer's score is ${computerScore}`
+draws.textContent = `There were ${drawScore} draws`;
 
 }
