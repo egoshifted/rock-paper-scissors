@@ -18,19 +18,14 @@
     width: 380px;
     height: 380px;
     margin: 25px auto;
-    display: flex;
     border: 1px solid black;
-    border-radius: 10px;
-}
-
-.results {
-    
-    width: 380px;
-    padding: 10px;
-    margin: auto;
+    overflow-wrap: break-word;
+    border-radius: 25px;
     display: flex;
-    border: 1px solid black;
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    line-height: 2;
+       
 }
 
 .playerhands {
@@ -48,4 +43,22 @@
 .playerhands i:hover {
     transform: scale(1.2);
     color: gray;
+}
+
+
+.reset {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.reset button {
+    border: none;
+    background-color: white;
+    padding: 15px 32px;
+    transition-duration: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
