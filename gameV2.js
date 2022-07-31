@@ -131,7 +131,7 @@ function playRound() {
 // Outputs the current score into the results window
 const results = document.querySelector(".results")
 const draws = document.querySelector(".draws")
-results.textContent = `Your Score is ${userScore}  |  The computer's score is ${computerScore}`
+results.textContent = `You Scored ${userScore} | Computer scored ${computerScore}`
 draws.textContent = `There were ${drawScore} draws`;
 
 }

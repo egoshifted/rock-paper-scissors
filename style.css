@@ -22,6 +22,7 @@
     overflow-wrap: break-word;
     border-radius: 25px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     line-height: 2;
@@ -38,11 +39,30 @@
     padding: 1rem;
     font-size: 100px;
     transition: transform .1s; 
+    color: gray;
 }
 
 .playerhands i:hover {
     transform: scale(1.2);
-    color: gray;
+    color: black;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.draws {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    margin: 15px auto;
+    text-align: center;
 }
 
 
