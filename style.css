@@ -5,6 +5,7 @@
     padding: 0;
     list-style-type: none;
     font-family: 'Comfortaa', cursive;
+    box-sizing: border-box; 
 }
 
 .navbar {
@@ -16,13 +17,24 @@
 .playarea {
     width: 380px;
     height: 380px;
-    margin: 50px auto;
+    margin: 25px auto;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.results {
+    
+    width: 380px;
+    padding: 10px;
+    margin: auto;
     display: flex;
     border: 1px solid black;
     border-radius: 10px;
 }
 
 .playerhands {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
 }

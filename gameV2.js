@@ -1,23 +1,17 @@
+// Define player selection variables
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+
+// Score Tracking
 let userScore = 0;
 let computerScore = 0; 
 let drawScore = 0;
 
-function game() {
-for (let i = 0; i < 5; i++) {
-    playRound();
-}
-console.log(`You Scored ${userScore} & computer scored ${computerScore}. There were ${drawScore} draws`);
-if (userScore > computerScore) {
-    console.log("You won!"); 
-} else if (userScore === computerScore) {
-        console.log("It's a draw!")
-    } else {
-        console.log("You lost!")
-    }
-}
-
-
+// Plays a full round of RPS 
 function playRound() {
+
+// Generate Computer Choice
 function randomChoice() {
     const choiceArray = [
         'Choice 1',
